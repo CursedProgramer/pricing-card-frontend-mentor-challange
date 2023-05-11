@@ -21,7 +21,6 @@ h2, h4, p {
   height: 400px;
   box-shadow: 2px 3px 7px 0px rgba(0,0,0,0.35);
   border-radius: 5px;
-  overflow: hidden;
 }
 
 #top-section {
@@ -31,27 +30,24 @@ h2, h4, p {
 }
 
 #bottom-section {
+  display: flex;
   width: 100%;
   height: 55%;
   color: white;
 }
 
 #bottom-left-section {
-  display: inline-block;
-  width: 50%;
   height: 100%;
-  vertical-align: top;
   background-color: #2ab2af;
   padding: 20px;
+  flex-basis: 50%;
 }
 
 #bottom-right-section {
-  display: inline-block;
-  width: 50%;
   height: 100%;
-  vertical-align: top;
   background-color: #2EBFBD;
   padding: 20px;
+  flex-basis: 50%;
 }
 
 #top-section h2 {
@@ -92,20 +88,16 @@ button:hover {
   margin-bottom: 25px;
 }
 
-#price-frequency, #price {
-  display: inline-block;
+#price-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 #price-frequency {
-  position: relative;
-  top: -3px;
   font-size: 0.8rem;
   opacity: 0.7;
   margin-left: 5px;
-}
-
-#price-container {
-  margin-bottom: 10px;
 }
 
 #bottom-left-section p {
@@ -118,4 +110,30 @@ ul {
   list-style: none;
   font-size: 0.9rem;
   opacity: 0.7;
+}
+
+@media (max-width: 650px) {
+  #bottom-left-section, #bottom-right-section {
+    width: 100%;
+  }
+  
+  #card {
+    width: 90%;
+    height: auto;
+  }
+  
+  #bottom-section {
+    flex-direction: column;
+  }
+  
+  #bottom-left-section, #bottom-right-section {
+    flex-basis: 50%;
+  }
+}
+
+#card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
